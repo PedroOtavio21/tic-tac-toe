@@ -9,27 +9,24 @@
 </head>
 <body>
     <div class="container">
-        <h1>Tic Tac Toe!</h1>
-        <div class="players">
-            <input type="text" id="player1" placeholder="Nome Jogador 1 (X):">
-            <input type="text" id="player2" placeholder="Nome Jogador 2 (O):">
+        <h1>Tic Tac Toe</h1>
+        <label for="player1">X</label>
+        <input type="text" id="player1" placeholder="Nome do jogador 1">
+        <label for="player2">O</label>
+        <input type="text" id="player2" placeholder="Nome do jogador 2">
+        <button id="start">Começar o Game!</button>
+        <h2>Vez de: <span id="turn-player"></span></h2>
+        <div class="space-game">
+            <div class="region" data-region="1"></div>
+            <div class="region" data-region="2"></div>
+            <div class="region" data-region="3"></div>
+            <div class="region" data-region="4"></div>
+            <div class="region" data-region="5"></div>
+            <div class="region" data-region="6"></div>
+            <div class="region" data-region="7"></div>
+            <div class="region" data-region="8"></div>
+            <div class="region" data-region="9"></div>
         </div>
-
-        <button id="init-btn">Play Game</button>
-
-        <div class="game-board" id="game-board">
-            <div class="space" data-index="1">X</div>
-            <div class="space" data-index="2">O</div>
-            <div class="space" data-index="3">X</div>
-            <div class="space" data-index="4">O</div>
-            <div class="space" data-index="5">X</div>
-            <div class="space" data-index="6">X</div>
-            <div class="space" data-index="7">O</div>
-            <div class="space" data-index="8">O</div>
-            <div class="space" data-index="9">X</div>
-        </div>
-
-        <div class="result" id="result"></div>
     </div>
 </body>
 </html>
