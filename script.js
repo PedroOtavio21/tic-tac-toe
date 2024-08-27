@@ -1,3 +1,4 @@
+// Variáveis globais
 const startBtn = document.getElementById('start')
 const result = document.getElementById('result')
 const regions = document.querySelectorAll('.region')
@@ -7,22 +8,24 @@ const root = document.querySelector(':root')
 let turnPlayer = ''
 let vBoard = []
 
+// Inicialização do Game -> reset
 function initializeGame(){
-    vBoard = [['', '', ''], ['', '', ''], ['', '', '']]
-    turnPlayer = 'player1'
+  vBoard = [['', '', ''], ['', '', ''], ['', '', '']]
+  turnPlayer = 'player1'
 
-    document.querySelector('h2').innerHTML = 'Vez de: <span id="turn-player"></span>'
-    startBtn.innerText = 'COMEÇAR!'
-    startBtn.classList.remove('restart')
-    startBtn.classList.remove('draw')
-    updateTitle()
-    regions.forEach((region) => {
-        region.classList.remove('winner')
-        region.innerText = ''
-        region.addEventListener('click', handleBoardClick)
-    })
+  document.querySelector('h2').innerHTML = 'Vez de: <span id="turn-player"></span>'
+  startBtn.innerText = 'COMEÇAR!'
+  startBtn.classList.remove('restart')
+  startBtn.classList.remove('draw')
+  updateTitle()
+  regions.forEach((region) => {
+      region.classList.remove('winner')
+      region.innerText = ''
+      region.addEventListener('click', handleBoardClick)
+  })
 }
 
+// Declaração de regiões de vitória
 function getWinRegions() {
     const winRegions = []
     if (vBoard[0][0] && vBoard[0][0] === vBoard[0][1] && vBoard[0][0] === vBoard[0][2])
@@ -42,13 +45,15 @@ function getWinRegions() {
     if (vBoard[0][2] && vBoard[0][2] === vBoard[1][1] && vBoard[0][2] === vBoard[2][0])
       winRegions.push("0.2", "1.1", "2.0")
     return winRegions
-  }
+}
 
+// Atualiza elemento html e jogador da vez 
 function updateTitle(){
     const playerInput = document.getElementById(turnPlayer)
     document.getElementById('turn-player').innerText = playerInput.value
 }
 
+// Adiciona estilização e declaração de jogador vencedor
 function handleWin(regions){
     regions.forEach((region) => {
         document.querySelector(`[data-region="${region}"]`).classList.add('winner')
@@ -59,45 +64,49 @@ function handleWin(regions){
     startBtn.classList.add('restart')
 }
 
+// Adiciona estilização e declaração de empate
 function handleDraw(){
   document.querySelector('h2').innerHTML = 'Empate!'
   startBtn.innerText = "RECOMEÇAR"
   startBtn.classList.add('draw')
 }
 
-function handleBoardClick(ev){
-    const region = ev.currentTarget.dataset.region
-    const rowColumnPair = region.split('.')
-    const row = rowColumnPair[0]
-    const column = rowColumnPair[1]
-
-    if(turnPlayer === 'player1'){
-        ev.currentTarget.innerText = 'X'
-        vBoard[row][column] = 'X'
-    } else {
-        ev.currentTarget.innerText = 'O'
-        vBoard[row][column] = 'O'
-    }
-
-    console.clear()
-    console.table(vBoard)
-    disableRegion(ev.currentTarget)
-    const winRegions = getWinRegions()
-    if(winRegions.length > 0){
-        handleWin(winRegions)
-    } else if (vBoard.flat().includes('')){
-        turnPlayer = turnPlayer === 'player1' ? 'player2' : 'player1'
-        updateTitle()
-    } else {
-      handleDraw()
-    }
-}
-
+// Desabilita região de Jogo após clique
 function disableRegion(element){
     element.style.cursor = 'default'
     element.removeEventListener('click', handleBoardClick)
 }
 
+// Adiciona evento de clique em região de jogo, de acordo com o jogador
+function handleBoardClick(ev){
+  const region = ev.currentTarget.dataset.region
+  const rowColumnPair = region.split('.')
+  const row = rowColumnPair[0]
+  const column = rowColumnPair[1]
+
+  if(turnPlayer === 'player1'){
+      ev.currentTarget.innerText = 'X'
+      vBoard[row][column] = 'X'
+  } else {
+      ev.currentTarget.innerText = 'O'
+      vBoard[row][column] = 'O'
+  }
+
+  console.clear()
+  console.table(vBoard)
+  disableRegion(ev.currentTarget)
+  const winRegions = getWinRegions()
+  if(winRegions.length > 0){
+      handleWin(winRegions)
+  } else if (vBoard.flat().includes('')){
+      turnPlayer = turnPlayer === 'player1' ? 'player2' : 'player1'
+      updateTitle()
+  } else {
+    handleDraw()
+  }
+}
+
+// Adiciona evento de troca de tema entre claro e escuro no html
 function switchTheme(ev) {
   const theme = ev.currentTarget.dataset.theme;
 
@@ -124,6 +133,6 @@ function switchTheme(ev) {
   }
 }
 
-
+// Adiciona eventos principais do jogo para execução
 switchBtn.addEventListener('click', switchTheme);
 startBtn.addEventListener('click', initializeGame)
