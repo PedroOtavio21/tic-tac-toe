@@ -5,8 +5,12 @@
 }
 
 :root {
-    --background-color: #333;
-    --color: #ddd;
+    --background-color: #65451F;
+    --color: #EAC696;
+    --input: #C8AE7D;
+    --region: #ffae00;
+    --draw: #ff7300;
+    --win: rgb(0, 192, 0);
 }
 
 body {
@@ -31,7 +35,13 @@ input {
     margin: 0 auto;
     border: 1px solid transparent;
     border-radius: .8rem;
+    background-color: var(--input);
+    color: var(--background-color);
     font-size: 1.4rem;
+}
+
+input::placeholder {
+    color: var(--background-color);
 }
 
 input:focus {
@@ -41,6 +51,7 @@ input:focus {
 button {
     padding: 1.2rem;
     font-size: 1.6rem;
+    font-weight: 600;
     text-transform: uppercase;
     border: 1px solid transparent;
     border-radius: .8rem;
@@ -99,13 +110,18 @@ button {
 }
 
 .region:hover {
-    background-color: #58046d;
+    background-color: var(--region);
+}
+
+.draw {
+    background-color: var(--draw);
 }
 
 .winner {
-    background-color: #04aa04;
+    background-color: var(--win);
 }
 
 .restart {
-    background-color: #58046d;
+    background-color: var(--win);
+    color: var(--background-color);
 }
