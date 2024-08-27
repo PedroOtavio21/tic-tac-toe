@@ -1,6 +1,8 @@
 const startBtn = document.getElementById('start')
 const result = document.getElementById('result')
 const regions = document.querySelectorAll('.region')
+const switchBtn = document.getElementById('switch-btn')
+const root = document.querySelector(':root')
 
 let turnPlayer = ''
 let vBoard = []
@@ -96,4 +98,32 @@ function disableRegion(element){
     element.removeEventListener('click', handleBoardClick)
 }
 
+function switchTheme(ev) {
+  const theme = ev.currentTarget.dataset.theme;
+
+  if (theme === 'light') {
+      root.style.setProperty('--background-color', '#2b2b2b');
+      root.style.setProperty('--color', '#b5b5b5');
+      root.style.setProperty('--input', '#4e4e4e');
+      root.style.setProperty('--region', '#ff9500');
+      root.style.setProperty('--draw', '#ff5700');
+      root.style.setProperty('--win', 'rgb(0, 150, 0)');
+
+      ev.currentTarget.dataset.theme = 'dark';
+      ev.currentTarget.innerText = 'Tema Claro';
+  } else {
+      root.style.setProperty('--background-color', '#65451F');
+      root.style.setProperty('--color', '#EAC696');
+      root.style.setProperty('--input', '#C8AE7D');
+      root.style.setProperty('--region', '#ffae00');
+      root.style.setProperty('--draw', '#ff7300');
+      root.style.setProperty('--win', 'rgb(0, 192, 0)');
+
+      ev.currentTarget.dataset.theme = 'light';
+      ev.currentTarget.innerText = 'Tema Escuro';
+  }
+}
+
+
+switchBtn.addEventListener('click', switchTheme);
 startBtn.addEventListener('click', initializeGame)
