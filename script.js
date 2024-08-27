@@ -12,6 +12,7 @@ function initializeGame(){
     document.querySelector('h2').innerHTML = 'Vez de: <span id="turn-player"></span>'
     startBtn.innerText = 'COMEÇAR!'
     startBtn.classList.remove('restart')
+    startBtn.classList.remove('draw')
     updateTitle()
     regions.forEach((region) => {
         region.classList.remove('winner')
@@ -56,6 +57,12 @@ function handleWin(regions){
     startBtn.classList.add('restart')
 }
 
+function handleDraw(){
+  document.querySelector('h2').innerHTML = 'Empate!'
+  startBtn.innerText = "RECOMEÇAR"
+  startBtn.classList.add('draw')
+}
+
 function handleBoardClick(ev){
     const region = ev.currentTarget.dataset.region
     const rowColumnPair = region.split('.')
@@ -80,7 +87,7 @@ function handleBoardClick(ev){
         turnPlayer = turnPlayer === 'player1' ? 'player2' : 'player1'
         updateTitle()
     } else {
-        document.querySelector('h2').innerHTML = 'Empate!'
+      handleDraw()
     }
 }
 
