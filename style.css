@@ -49,6 +49,7 @@ button {
     background-color: var(--background-color);
     color: var(--color);
     cursor: pointer;
+    transition: .3s;
 }
 
 .container {
@@ -93,10 +94,18 @@ button {
     justify-content: center;
     font-size: 3rem;
     font-weight: 600;
-    transition: .2s;
+    transition: .3s;
     cursor: pointer;
 }
 
 .region:hover {
-    background-color: rgb(88, 4, 109);
+    background-color: #58046d;
+}
+
+.winner {
+    background-color: #04aa04;
+}
+
+.restart {
+    background-color: #58046d;
 }
