@@ -9,23 +9,28 @@
 </head>
 <body>
     <div class="container">
-        <h1>Tic Tac Toe</h1>
-        <label for="player1">X</label>
-        <input type="text" id="player1" placeholder="Nome do jogador 1">
-        <label for="player2">O</label>
-        <input type="text" id="player2" placeholder="Nome do jogador 2">
-        <button id="start">Começar o Game!</button>
-        <h2>Vez de: <span id="turn-player"></span></h2>
-        <div class="space-game">
-            <div class="region" data-region="1"></div>
-            <div class="region" data-region="2"></div>
-            <div class="region" data-region="3"></div>
-            <div class="region" data-region="4"></div>
-            <div class="region" data-region="5"></div>
-            <div class="region" data-region="6"></div>
-            <div class="region" data-region="7"></div>
-            <div class="region" data-region="8"></div>
-            <div class="region" data-region="9"></div>
+        <div class="container-left">
+            <h1>TIC TAC TOE!</h1>
+            <div class="players">
+                <input type="text" id="player1" placeholder="Nome do jogador (X)">
+                <input type="text" id="player2" placeholder="Nome de jogador (O)">
+            </div>
+            <button id="start">Começar!</button>
+        </div>
+        <div class="container-right">
+            <h2>Vez de: <span id="turn-player"></span></h2>
+            <div class="game-board">
+                <div class="region" data-region="1"></div>
+                <div class="region" data-region="2"></div>
+                <div class="region" data-region="3"></div>
+                <div class="region" data-region="4"></div>
+                <div class="region" data-region="5"></div>
+                <div class="region" data-region="6"></div>
+                <div class="region" data-region="7"></div>
+                <div class="region" data-region="8"></div>
+                <div class="region" data-region="9"></div>
+            </div>
+            <div id="resul"></div>
         </div>
     </div>
 </body>
