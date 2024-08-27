@@ -10,6 +10,8 @@ function initializeGame(){
     turnPlayer = 'player1'
 
     document.querySelector('h2').innerHTML = 'Vez de: <span id="turn-player"></span>'
+    startBtn.innerText = 'COMEÇAR!'
+    startBtn.classList.remove('restart')
     updateTitle()
     regions.forEach((region) => {
         region.classList.remove('winner')
@@ -46,10 +48,12 @@ function updateTitle(){
 
 function handleWin(regions){
     regions.forEach((region) => {
-        document.querySelector(`[data-region="${region}"]`).classList('winner')
+        document.querySelector(`[data-region="${region}"]`).classList.add('winner')
     })
-    const playerName = document.getElementById('turn-player').value
+    const playerName = document.getElementById(turnPlayer).value
     document.querySelector('h2').innerHTML = `${playerName} venceu!`
+    startBtn.innerText = 'RECOMEÇAR'
+    startBtn.classList.add('restart')
 }
 
 function handleBoardClick(ev){
