@@ -24,9 +24,10 @@ O projeto foi realizado utilizando boas práticas de versionamento de código, u
 a manutenção de escopo de código.
 
 # TO-DO
-[] - Versão 1.0 do projeto
-[] - Implementar disabled em botão caso tenha empate ou vitória de jogador
-[] - Implementar switchTheme em javascript
+[X] - Versão 1.0 do projeto
+[ ] - Implementar disabled em botão caso tenha empate ou vitória de jogador
+[X] - Implementar switchTheme em javascript
+[ ] - Alterar estilização de troca de thema em javascript
 
 ## Execução
 Para executar o código em sua própria máquina, recomento utilizar o VSCODE com a extensão "Live Server", para 
