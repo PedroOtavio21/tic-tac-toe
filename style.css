@@ -81,6 +81,11 @@ button {
     flex-direction: column;
 }
 
+.container-right {
+    align-items: center;
+    /* justify-content: center; */
+}
+
 .players {
     display: flex;
     flex-direction: column;
@@ -91,6 +96,9 @@ button {
     display: grid;
     align-items: center;
     justify-content: center;
+    background-color: var(--input);
+    padding: 1rem;
+    border-radius: .8rem;
     grid-template-columns: repeat(3, 100px);
     gap: 10px;
 }
@@ -100,6 +108,7 @@ button {
     height: 100px;
     background-color: var(--background-color);
     color: var(--color);
+    border-radius: .8rem;
     display: flex;
     align-items: center;
     justify-content: center;
