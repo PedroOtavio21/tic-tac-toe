@@ -38,6 +38,7 @@ input {
     background-color: var(--input);
     color: var(--background-color);
     font-size: 1.4rem;
+    transition: transform .3s ease;
 }
 
 input::placeholder {
@@ -46,6 +47,7 @@ input::placeholder {
 
 input:focus {
     outline: none;
+    transform: scale(1.05);
 }
 
 button {
@@ -60,7 +62,11 @@ button {
     background-color: var(--background-color);
     color: var(--color);
     cursor: pointer;
-    transition: .3s;
+    transition: transform .3s ease; 
+}
+
+button:hover {
+    transform: scale(1.05);
 }
 
 .container {
